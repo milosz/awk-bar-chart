@@ -10,7 +10,7 @@ processes="$(ps hax -o user)"
 user_processes="$(echo "$processes" | sort | uniq -c)"
 
 # character used to print bar chart
-barchr="+"
+barchr="█"
 
 # current min, max values [from 'ps' output]
 vmin=1
@@ -44,5 +44,8 @@ echo "$user_processes" | awk --assign dmin="$dmin" --assign dmax="$dmax" \
                                     else
                                       {printf(cstep3 barchr cstepc);}
                                 };
+				for(i;i<=56;i++){
+                                  printf "░"
+				}
 				print ""
                               }'
